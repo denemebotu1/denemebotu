@@ -50,12 +50,13 @@ bot.onText(/\/start/, (msg) => {
 
 
 
-// Butonlar
+// Buton kontrolleri
 bot.on("callback_query", async (query) => {
 
     const chatId = query.message.chat.id;
 
 
+    // Üyelik kontrolü
     if (query.data === "kontrol") {
 
         try {
@@ -86,17 +87,16 @@ bot.on("callback_query", async (query) => {
 
             if (channelOk && groupOk) {
 
-
                 bot.sendMessage(
                     chatId,
                     "✅ Üyeliğiniz onaylandı\n\n🎁 Deneme bonuslarını görmek için aşağıdaki butona basabilirsiniz.",
                     {
-                        reply_markup:{
-                            inline_keyboard:[
+                        reply_markup: {
+                            inline_keyboard: [
                                 [
                                     {
-                                        text:"🎁 Deneme Bonusu",
-                                        callback_data:"bonus"
+                                        text: "🎁 Deneme Bonusu",
+                                        callback_data: "bonus"
                                     }
                                 ]
                             ]
@@ -107,12 +107,10 @@ bot.on("callback_query", async (query) => {
 
             } else {
 
-
                 bot.sendMessage(
                     chatId,
                     "❌ Henüz grup veya kanala katılımınız bulunamadı.\n\nLütfen katıldıktan sonra tekrar kontrol ediniz."
                 );
-
 
             }
 
@@ -132,12 +130,25 @@ bot.on("callback_query", async (query) => {
 
 
 
+    // Bonus butonu
     if (query.data === "bonus") {
 
 
         bot.sendMessage(
             chatId,
-            "🎁 Güncel Deneme Bonusu\n\n🏆 Site: Yakında eklenecek\n\n🎫 Kod: Yakında eklenecek"
+            "🎁 Güncel Deneme Bonusu",
+            {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: "BİLLİONBAHİS 500 TL DENEME",
+                                url: "https://tinyurl.com/BonusHeroAff"
+                            }
+                        ]
+                    ]
+                }
+            }
         );
 
 
