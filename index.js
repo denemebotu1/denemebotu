@@ -49,7 +49,6 @@ bot.onText(/\/start/, (msg) => {
 });
 
 
-
 // Buton kontrolleri
 bot.on("callback_query", async (query) => {
 
@@ -65,7 +64,6 @@ bot.on("callback_query", async (query) => {
                 CHANNEL,
                 chatId
             );
-
 
             const groupMember = await bot.getChatMember(
                 GROUP,
@@ -89,7 +87,7 @@ bot.on("callback_query", async (query) => {
 
                 bot.sendMessage(
                     chatId,
-                    "✅ Üyeliğiniz onaylandı\n\n🎁 Deneme bonuslarını görmek için aşağıdaki butona basabilirsiniz.",
+                    "✅ Üyeliğiniz onaylandı\n\n🎁 Deneme bonusunu görmek için aşağıdaki butona basabilirsiniz.",
                     {
                         reply_markup: {
                             inline_keyboard: [
@@ -130,19 +128,19 @@ bot.on("callback_query", async (query) => {
 
 
 
-    // Bonus butonu
+    // Deneme bonusu
     if (query.data === "bonus") {
 
 
         bot.sendMessage(
             chatId,
-            "🎁 Güncel Deneme Bonusu",
+            "🎁 BİLLİONBAHİS 500 TL DENEME BONUSU",
             {
                 reply_markup: {
                     inline_keyboard: [
                         [
                             {
-                                text: "BİLLİONBAHİS 500 TL DENEME",
+                                text: "BİLLİONBAHİS 500 TL DENEME BONUSU",
                                 url: "https://tinyurl.com/BonusHeroAff"
                             }
                         ]
