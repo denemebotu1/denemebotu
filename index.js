@@ -12,6 +12,15 @@ const CHANNEL = "@bonusheroduyuru";
 const GROUP = "@bonusherochat";
 
 
+// Bot menüsü
+bot.setMyCommands([
+    {
+        command: "start",
+        description: "Botu başlat"
+    }
+]);
+
+
 // /start
 bot.onText(/\/start/, (msg) => {
 
@@ -49,6 +58,7 @@ bot.onText(/\/start/, (msg) => {
 });
 
 
+
 // Buton kontrolleri
 bot.on("callback_query", async (query) => {
 
@@ -64,6 +74,7 @@ bot.on("callback_query", async (query) => {
                 CHANNEL,
                 chatId
             );
+
 
             const groupMember = await bot.getChatMember(
                 GROUP,
@@ -87,7 +98,7 @@ bot.on("callback_query", async (query) => {
 
                 bot.sendMessage(
                     chatId,
-                    "✅ Üyeliğiniz onaylandı\n\n🎁 Deneme bonusunu görmek için aşağıdaki butona basabilirsiniz.",
+                    "✅ Üyeliğiniz onaylandı\n\n🎁 Deneme bonusunu almak için aşağıdaki butona basabilirsiniz.",
                     {
                         reply_markup: {
                             inline_keyboard: [
@@ -104,6 +115,7 @@ bot.on("callback_query", async (query) => {
 
 
             } else {
+
 
                 bot.sendMessage(
                     chatId,
@@ -134,7 +146,7 @@ bot.on("callback_query", async (query) => {
 
         bot.sendMessage(
             chatId,
-            "🎁 BİLLİONBAHİS 500 TL DENEME BONUSU",
+            "🎁 BİLLİONBAHİS 500 TL DENEME BONUSU\n\n⚠️ Deneme bonusunu almak için aşağıdaki link üzerinden üyeliğinizi oluşturmanız gerekmektedir.",
             {
                 reply_markup: {
                     inline_keyboard: [
